@@ -2,7 +2,11 @@
 
 const Items = () => {
   return (
-    <div>Items</div>
+    <div className="bg-black">
+      <div className = "grid-container">
+        
+      </div>
+    </div>
   )
 }
 
