@@ -31,6 +31,8 @@ backGround{
   align-items: center;
   justify-content:space-evenly;
   height: 80px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+
 }
 
 .cart{
@@ -60,11 +62,60 @@ backGround{
 .heroSection {
   display: flex;
   justify-content: center; /* Center the items horizontally */
-  height: 70vh;
+  height: 80vh;
+  border: none;
 }
 
 .heroImage {
- /* Limit the maximum width */
   max-width: 100%;
   min-width: 100px;
+  border-color: transparent;
+}
+
+.items {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr); /* Three equal columns */
+  gap: 16px; /* Space between items */
+  padding: 16px; /* Padding around the grid */
+}
+
+.items > div{
+  background-color: #f8f8f8; /* Background color for items */
+  border: 1px solid #ddd; /* Border around items */
+  border-radius: 8px; /* Rounded corners */
+  padding: 16px; /* Padding inside items */
+  text-align: center; /* Center align text */
+  transition: transform 0.2s; /* Animation for hover effect */
+}
+
+.items>div:hover {
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.item img {
+  max-width: 100%; /* Make images responsive */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 4px; /* Rounded corners for images */
+}
+
+.item p {
+  margin: 8px 0; /* Margin between paragraphs */
+}
+
+/* Specific layout adjustments */
+.shirt {
+  grid-row: 1; /* Position shirt in the first column */
+  grid-column: 1;
+}
+
+.other-items {
+  display: grid;
+  grid-template-rows: repeat(1, 1fr); /* Two columns for the other items */
+  grid-row: 1; /* First row for other items */
+  
+}
+
+.shoes {
+  grid-column: 1 / -1; /* Shoes take the full width of the grid */
+  grid-row: 2; /* Position shoes in the second row */
 }

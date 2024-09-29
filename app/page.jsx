@@ -7,13 +7,12 @@ import Hero from '@components/Hero'
 import { useState } from 'react';
 
 
-const Home = ({ setCartCount }) => {
+const Home = ({ cartCount, setCartCount }) => {
   // State to track cart count
-  
   return (
     <section className='homeSection'>
       <Hero/>
-      <Items setCartCount = {setCartCount}/>
+      <Items cartCount = {cartCount} setCartCount = {setCartCount}/>
       {/* You can pass cartCount and setCartCount to Items or any other component if needed */}
     </section>
   );
