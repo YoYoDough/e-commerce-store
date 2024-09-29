@@ -69,7 +69,9 @@ backGround{
 .heroImage {
   max-width: 100%;
   min-width: 100px;
-  border-color: transparent;
+  border-color:transparent;
+  margin-top: 20px;
+  margin-bottom: 4px;
 }
 
 .items {
