@@ -6,9 +6,10 @@ import Items from '@components/Items';
 import Hero from '@components/Hero'
 import { useState } from 'react';
 
+
 const Home = ({ setCartCount }) => {
   // State to track cart count
-
+  
   return (
     <section className='homeSection'>
       <Hero/>
