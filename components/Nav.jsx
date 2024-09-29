@@ -13,21 +13,23 @@ const Logo = styled(Link)`
 `;
 const skeleton = "text-lg block p-2 text-lg underline-offset-4 hover:text-black hover:underline md:inline-block md:text-sm dark:hover:text-neutral-300 text-black dark:text-neutral-300";
 
-const Nav = () => {
+
+
+const Nav = (props) => {
+  const cartCount = props.cartCount;
   return (
-    <nav className="bg-white dark:bg-gray-900 shadow-md">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 flex justify-between items-center h-16">
-      <div>
-        <Link href="/"
-        className={skeleton}
-        >
-          Shirts
-        </Link>
-        <Link href="/about"
-        className={skeleton}>
-          Shoes
-        </Link>
-      </div>
+    <nav className="navBar">
+        <div className = "categories">
+          <Link href="/"
+          className={skeleton}
+          >
+            Shirts
+          </Link>
+          <Link href="/about"
+          className={skeleton}>
+            Shoes
+          </Link>
+        </div>
       
 
         {/* Home Logo */}
@@ -43,10 +45,11 @@ const Nav = () => {
         
 
         {/* Cart Image */}
-        <Link href="/cart" className="flex-shrink-0">
+        <Link href="/cart" className="cart">
           <Image src="/shoppingCart.png" alt="Cart" width={40} height={40} />
+          {cartCount > 0 && <div className = "cartCounter">{cartCount}</div>}
+          
         </Link>
-      </div>
     </nav>
   );
 };
