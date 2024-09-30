@@ -1,8 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import Item from "@components/Item"
+import { PageContext } from '@app/layout'
 
+const Items = () => {
+  const { setCartCount } = useContext(PageContext);
 
-const Items = ({ cartCount, setCartCount }) => {
   const handleSelect = () => {
     setCartCount(prevCount => prevCount + 1); // Increment cartCount
   };

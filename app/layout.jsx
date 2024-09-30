@@ -4,8 +4,9 @@ import '@styles/globals.css';
 import Nav from '@components/Nav';
 import Provider from '@components/Provider';
 import Info from '@components/Info';
-import { useState } from 'react'
+import { useState, createContext  } from 'react'
 
+export const PageContext = createContext(null);
 
 
 
@@ -24,7 +25,9 @@ export const RootLayout = ({ children }) => {
           <main className="app">
             {/* Pass cartCount to Nav component */}
             <Nav cartCount = {cartCount}/>
-            {children}
+            <PageContext.Provider value={{ cartCount, setCartCount }}>
+              {children}
+            </PageContext.Provider>
             <Info />
           </main>
         </Provider>
