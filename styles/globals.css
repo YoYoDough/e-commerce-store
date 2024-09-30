@@ -155,12 +155,11 @@ button {
 .footerContent{
   display: flex;
   flex-direction: column;
-  
 }
 
 .footerContent > p {
   font-size: 1.1rem;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   line-height: 1.75rem;
 }
 
@@ -176,4 +175,8 @@ button {
 
 .footerContent li{
   margin-bottom: 10px;
+}
+
+li::marker{
+  color: #d1d5db;
 }
