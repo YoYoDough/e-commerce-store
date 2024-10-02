@@ -6,7 +6,7 @@ const Hero = () => {
         <img src = "/heroImage2.png" className = "heroImage"></img>
         <a href = "#items">
           <button className = "heroButton">
-              Shop Now
+              Shop now
           </button>
         </a>
     </div>

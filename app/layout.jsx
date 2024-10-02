@@ -27,7 +27,7 @@ export const RootLayout = ({ children }) => {
 
           <main className="app">
             {/* Pass cartCount to Nav component */}
-            <Nav cartCount = {cartCount}/>
+            <Nav cartCount = {cartCount} cartItems = {cart}/>
             <PageContext.Provider value={{ cartCount, setCartCount, setCart, setClothingItems, clothingItems}}>
               {children}
             </PageContext.Provider>

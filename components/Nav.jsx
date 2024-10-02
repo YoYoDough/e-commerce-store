@@ -3,8 +3,9 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import styled from "styled-components";
-import CategoryList from '@components/CategoryList';
-import { useState } from 'react';
+import CartOverlay from '@components/CartOverlay'
+import { useEffect, useState, useContext } from 'react';
+import { PageContext } from '@app/layout'
 
 const Logo = styled(Link)`
   text-decoration:none;
@@ -17,6 +18,12 @@ const skeleton = "text-lg block p-2 text-lg underline-offset-4 hover:text-black 
 
 const Nav = (props) => {
   const cartCount = props.cartCount;
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const cartItems  = props.cartItems
+
+  function handleToggle(){
+    setIsCartOpen(!isCartOpen);
+  }
   
   return (
     <nav className="navBar">
@@ -46,11 +53,11 @@ const Nav = (props) => {
         
 
         {/* Cart Image */}
-        <Link href="/cart" className="cart">
+        <button onClick = {handleToggle} className="cart">
           <Image src="/shoppingCart.png" alt="Cart" width={40} height={40} />
           {cartCount > 0 && <div className = "cartCounter">{cartCount}</div>}
-          
-        </Link>
+        </button>
+        {isCartOpen && <CartOverlay items = {cartItems} onClose = {handleToggle}></CartOverlay>}
     </nav>
   );
 };

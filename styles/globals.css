@@ -33,11 +33,21 @@ button {
 }
 
 .cart{
-  
+  display: flex;
+  position: relative;
+  border: 1px solid #ddd; /* Border around items */
+  width: 70px;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.cart:hover{
+  background-color: #ffffff;
 }
 
 .logo {
-  display: flex;
   justify-content: center;
   flex-grow: 1; /* Allows the logo to stay centered */
   text-align: center;
@@ -50,9 +60,8 @@ button {
   color: white;
   background-color: rgb(37 99 235);
   position: absolute;
-  top: 4px;
-  bottom: 90px;
-  right: 280px;
+  bottom: 40px; 
+  right: 0px;
   width: 20px;
   height: 20px;
   border-radius: 20%;
@@ -65,6 +74,7 @@ button {
   justify-content: center; /* Center the items horizontally */
   height: 80vh;
   border: none;
+  
 }
 
 .heroButton{
@@ -86,6 +96,7 @@ button {
   border-color:transparent;
   margin-top: 20px;
   margin-bottom: 4px;
+  border-radius: 10px;
 }
 
 .items {
@@ -250,4 +261,45 @@ li::marker{
 /* Hover effect for add to cart button */
 .addToCartButton:hover {
   background-color: #005bb5; /* Darker blue on hover */
+}
+
+.cart-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 300px;
+  height: 100%;
+  background-color: white;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+  transition: right 0.3s ease-in-out;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.close-btn {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.cart-overlay ul {
+  list-style: none;
+  padding: 0;
+}
+
+.cart-overlay li {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.overlayImg {
+  width: 100px;
+  height: auto;
+  margin-bottom: 10px;
 }
