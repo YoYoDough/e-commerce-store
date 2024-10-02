@@ -45,14 +45,14 @@ button {
 
 .cartCounter {
   display: flex;
-  text-align: center;
+  align-items: center;
   justify-content: center;
   color: white;
   background-color: rgb(37 99 235);
   position: absolute;
   top: 4px;
   bottom: 90px;
-  right: 420px;
+  right: 280px;
   width: 20px;
   height: 20px;
   border-radius: 20%;
@@ -60,15 +60,29 @@ button {
 }
 
 .heroSection {
+  position: relative;
   display: flex;
   justify-content: center; /* Center the items horizontally */
   height: 80vh;
   border: none;
 }
 
+.heroButton{
+  position: absolute;
+  left: 45%;
+  top: 50%;
+  background-color: #222222;
+  width: 200px;
+  height: 90px;
+  color: white;
+  border-radius: 10px;
+  font-size:x-large;
+  font-weight: bold;
+}
+
 .heroImage {
   max-width: 100%;
-  min-width: 100px;
+  min-height: 100px;
   border-color:transparent;
   margin-top: 20px;
   margin-bottom: 4px;
@@ -119,7 +133,7 @@ button {
   
 }
 
-.shoes {
+.shoe {
   grid-column: 1 / -1; /* Shoes take the full width of the grid */
   grid-row: 2; /* Position shoes in the second row */
 }
@@ -179,4 +193,61 @@ button {
 
 li::marker{
   color: #d1d5db;
+}
+
+.categoryItems {
+  display: flex; /* Use flexbox for layout */
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  gap: 16px; /* Space between items */
+  padding: 20px; /* Padding around the items */
+}
+
+/* Individual category item */
+.categoryItem {
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 8px; /* Rounded corners */
+  padding: 16px; /* Padding inside the item */
+  width: 400px; /* Fixed width for consistency */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  text-align: center; /* Center text */
+  transition: transform 0.2s; /* Animation for hover effect */
+}
+
+/* Hover effect for category item */
+.categoryItem:hover {
+  transform: scale(1.05); /* Scale up slightly on hover */
+}
+
+/* Image styling */
+.categoryItem img {
+  max-width: 100%; /* Make image responsive */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 4px; /* Slight rounding on image corners */
+}
+
+/* Item name styling */
+.categoryItem p {
+  margin-bottom: 8px;
+}
+
+/* Price styling */
+.price {
+  font-weight: bold; /* Make the price bold */
+  color: #333; /* Dark gray color */
+}
+
+/* Button styling */
+.addToCartButton {
+  background-color: #0070f3; /* Blue background */
+  color: white; /* White text */
+  border: none; /* Remove border */
+  border-radius: 4px; /* Rounded corners */
+  padding: 8px 16px; /* Padding inside button */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.2s; /* Transition for hover effect */
+}
+
+/* Hover effect for add to cart button */
+.addToCartButton:hover {
+  background-color: #005bb5; /* Darker blue on hover */
 }

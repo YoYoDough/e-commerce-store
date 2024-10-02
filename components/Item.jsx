@@ -6,7 +6,7 @@ const Item = ({ item, onSelect, className}) => {
       <div className={className}>
         <img src={item.imageUrl} alt={item.name} />
         <p>{item.name}</p>
-        <p>${item.price}</p>
+        <p className = "price">${item.price}</p>
         <button onClick = {onSelect} className = "addToCartButton">Add to Cart</button>
       </div>
     );

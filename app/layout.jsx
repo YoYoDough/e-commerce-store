@@ -12,7 +12,10 @@ export const PageContext = createContext(null);
 
 export const RootLayout = ({ children }) => {
   // Define cartCount state for managing the cart count
-  const [cartCount, setCartCount] = useState(0); // Manage cartCount state here
+  const [cartCount, setCartCount] = useState(0); // Manage cartCount state here\
+  const [clothingItems, setClothingItems] = useState([]);
+  const [cart, setCart] = useState([]);
+  console.log(cart);
 
   return (
     <html lang="en">
@@ -25,7 +28,7 @@ export const RootLayout = ({ children }) => {
           <main className="app">
             {/* Pass cartCount to Nav component */}
             <Nav cartCount = {cartCount}/>
-            <PageContext.Provider value={{ cartCount, setCartCount }}>
+            <PageContext.Provider value={{ cartCount, setCartCount, setCart, setClothingItems, clothingItems}}>
               {children}
             </PageContext.Provider>
             <Info />

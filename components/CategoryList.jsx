@@ -1,9 +1,12 @@
-import React from 'react'
 
-const CategoryList = () => {
+
+const CategoryList = ({item, onSelect}) => {
   return (
-    <div>
-      
+    <div className = "categoryItem">
+      <img src = {item.imageUrl}></img>
+      <p>{item.name}</p>
+      <p className = "price">${item.price}</p>
+      <button onClick = {onSelect} className = "addToCartButton">Add to Cart</button>
     </div>
   )
 }

@@ -17,15 +17,16 @@ const skeleton = "text-lg block p-2 text-lg underline-offset-4 hover:text-black 
 
 const Nav = (props) => {
   const cartCount = props.cartCount;
+  
   return (
     <nav className="navBar">
         <div className = "categories">
-          <Link href="/"
+          <Link href="/shirts"
           className={skeleton}
           >
             Shirts
           </Link>
-          <Link href="/about"
+          <Link href="/shoes"
           className={skeleton}>
             Shoes
           </Link>

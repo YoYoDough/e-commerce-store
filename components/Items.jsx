@@ -4,11 +4,27 @@ import { PageContext } from '@app/layout'
 
 const Items = () => {
   const { setCartCount } = useContext(PageContext);
+  const { setCart } = useContext(PageContext);
 
-  const handleSelect = () => {
+  const handleSelect = (item) => {
     setCartCount(prevCount => prevCount + 1); // Increment cartCount
-  };
+    setCart(prevCart => {
+        const existingItem = prevCart.find(cartItem => cartItem.id === item.id);
 
+        if (existingItem) {
+            // If the item already exists in the cart, increment its count
+            return prevCart.map(cartItem =>
+                cartItem.id === item.id
+                    ? { ...cartItem, count: cartItem.count + 1 } // Increment count
+                    : cartItem
+            );
+        } else {
+            // If the item does not exist, add it to the cart with a count of 1
+            return [...prevCart, { ...item, count: 1 }];
+        }
+    });
+  };
+  
   const [clothingItems, setClothingItems] = useState([]);  // State to store the fetched clothing items
 
   // useEffect runs after the component mounts to fetch clothing data from the API
@@ -31,14 +47,14 @@ const Items = () => {
   console.log(clothingItems);
 
   return (
-    <div className="items">
-        {clothingItems.length > 0 && <Item item={clothingItems[0]} onSelect={handleSelect} className = "shirt"/>}
+    <div className="items" id ="items">
+        {clothingItems.length > 0 && <Item item={clothingItems[0]} onSelect={() => handleSelect(clothingItems[0])} className = "shirt"/>}
       
         {clothingItems.slice(1, 3).map((item, index) => (
-          <Item key={index} item={item} onSelect={handleSelect} className = "other-items"/>
+          <Item key={index} item={item} onSelect={() => handleSelect(item)} className = "other-items"/>
         ))}
 
-        {clothingItems.length > 3 && <Item item={clothingItems[3]} onSelect={handleSelect} className = "shoes"/>}
+        {clothingItems.length > 3 && <Item item={clothingItems[3]} onSelect={() => handleSelect(clothingItems[3])} className = "shoe"/>}
     </div>
   )
 }
