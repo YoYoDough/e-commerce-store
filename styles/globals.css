@@ -263,7 +263,7 @@ li::marker{
   background-color: #005bb5; /* Darker blue on hover */
 }
 
-.cart-overlay {
+.cartOverlay {
   position: fixed;
   top: 0;
   right: 0;
@@ -273,10 +273,11 @@ li::marker{
   background-color: white;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
   transition: right 0.3s ease-in-out;
+  z-index: 1;
   padding: 20px;
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
+  overflow-x:auto
 }
 
 .close-btn {
@@ -289,6 +290,7 @@ li::marker{
 
 .cart-overlay ul {
   list-style: none;
+  margin: 10px;
   padding: 0;
 }
 
@@ -299,7 +301,20 @@ li::marker{
 }
 
 .overlayImg {
-  width: 100px;
+  width: 80%;
   height: auto;
+  margin-bottom: 10px;
+}
+
+.cartItem{
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f8f8; /* Background color for items */
+  border: 1px solid #ddd; /* Border around items */
+  border-radius: 8px; /* Rounded corners */
+  padding: 16px; /* Padding inside items */
+  text-align: center; /* Center align text */
+  justify-content: center;
+  align-items: center;
   margin-bottom: 10px;
 }
