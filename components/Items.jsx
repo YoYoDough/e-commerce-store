@@ -20,7 +20,7 @@ const Items = () => {
             );
         } else {
             // If the item does not exist, add it to the cart with a count of 1 and default size
-            const defaultSize = item.mediumStock > 0 ? 'm' : item.largeStock > 0 ? 'l' : item.smallStock > 0 ? 's' : null;
+            const defaultSize = item.mediumStock > 0 ? 'medium' : item.largeStock > 0 ? 'large' : item.smallStock > 0 ? 'small' : null;
             return [...prevCart, { ...item, itemSize: defaultSize, count: 1}]; // 'm' is the default size
         }
     });

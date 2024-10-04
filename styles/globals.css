@@ -268,11 +268,11 @@ li::marker{
   top: 0;
   right: 0;
   bottom: 0;
-  width: 300px;
+  width: 400px;
   height: 100%;
   background-color: white;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
-  transition: right 0.3s ease-in-out;
+  transition: right 5s ease-in-out;
   z-index: 1;
   padding: 20px;
   display: flex;
@@ -301,7 +301,7 @@ li::marker{
 }
 
 .overlayImg {
-  width: 80%;
+  width: 90%;
   height: auto;
   margin-bottom: 10px;
 }
@@ -329,7 +329,7 @@ li::marker{
   font-weight: bold;
 }
 
-button:disabled{
+.size-selection :disabled{
   background-color: grey; /* Grey background for disabled buttons */
   cursor: not-allowed; /* Change cursor to indicate button is not clickable */
 }
@@ -342,14 +342,60 @@ button:disabled{
 
 .removeButton{
   margin: 10px;
-  background-color: red;
-  width: 150px;
-  height: 50px;
+  background-color: rgba(255, 0, 0, 0.685);
+  width: 200px;
+  height: auto;
   color: white;
   font-weight: bold;
   border-radius: 10px;
+  margin-top: 20px;
+  padding: 10px;
 }
 
 .removeButton:hover{
   background-color: rgb(124, 3, 3);
+}
+
+button.darkerSizeButtonColor{
+  background-color: #06438a;
+}
+
+button.normalSizeButtonColor{
+  background-color: #0070f3;
+}
+
+.submitCheckoutButton{
+  align-self: center;
+  background-color: #d1d5db;
+  padding: 20px;
+  border-radius: 5px;
+  font-size: large;
+  font-weight: bold;
+  margin-top: 100px;
+}
+
+.addMore{
+  margin-left: 8px;
+  background-color: #ccc;
+  color: black;
+  width: 30px;
+  font-weight: 800;
+  padding: 5px;
+  height: auto;
+  border-radius: 5px;
+}
+
+.addLess{
+  margin-left: 8px;
+  background-color:#ccc;
+  color: black;
+  width: 30px;
+  font-weight: 800;
+  padding: 5px;
+  height: auto;
+  border-radius: 5px;
+}
+
+.cartItem{
+  line-height: 40px;
 }
