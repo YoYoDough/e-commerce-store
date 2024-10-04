@@ -7,8 +7,8 @@ const Items = () => {
   const { setCart } = useContext(PageContext);
 
   const handleSelect = (item) => {
-    setCartCount(prevCount => prevCount + 1); // Increment cartCount
-    setCart(prevCart => {
+      setCartCount(prevCount => prevCount + 1); // Increment cartCount
+      setCart(prevCart => {
         const existingItem = prevCart.find(cartItem => cartItem.id === item.id);
 
         if (existingItem) {
@@ -19,8 +19,8 @@ const Items = () => {
                     : cartItem
             );
         } else {
-            // If the item does not exist, add it to the cart with a count of 1
-            return [...prevCart, { ...item, count: 1 }];
+            // If the item does not exist, add it to the cart with a count of 1 and default size
+            return [...prevCart, { ...item, itemSize: '', count: 1}]; // 'm' is the default size
         }
     });
   };

@@ -5,6 +5,7 @@ import Nav from '@components/Nav';
 import Provider from '@components/Provider';
 import Info from '@components/Info';
 import { useState, createContext  } from 'react'
+import CartOverlay from '@components/CartOverlay'
 
 export const PageContext = createContext(null);
 
@@ -15,7 +16,9 @@ export const RootLayout = ({ children }) => {
   const [cartCount, setCartCount] = useState(0); // Manage cartCount state here\
   const [clothingItems, setClothingItems] = useState([]);
   const [cart, setCart] = useState([]);
+  const cartSize = cart.length
   console.log(cart);
+  
 
   return (
     <html lang="en">
@@ -27,8 +30,9 @@ export const RootLayout = ({ children }) => {
 
           <main className="app">
             {/* Pass cartCount to Nav component */}
-            <Nav cartCount = {cartCount} cartItems = {cart}/>
-            <PageContext.Provider value={{ cartCount, setCartCount, setCart, setClothingItems, clothingItems}}>
+            
+            <PageContext.Provider value={{ cartCount, setCartCount, setCart, setClothingItems, clothingItems, cartSize}}>
+              <Nav cartCount = {cartCount} cartItems = {cart}/>
               {children}
             </PageContext.Provider>
             <Info />

@@ -20,7 +20,7 @@ const page = () => {
                 return prevCart.map(cartItem => cartItem.id === item.id ? {...cartItem, count: cartItem.count+1}: cartItem)
             }
             else{
-                return [...prevCart, {...item, count: 1}]
+                return [...prevCart, {...item, itemSize: 'm', count: 1}]
             }
         })
     };

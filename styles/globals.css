@@ -318,3 +318,38 @@ li::marker{
   align-items: center;
   margin-bottom: 10px;
 }
+
+.size-selection > button{
+  margin: 10px;
+  background-color: #0070f3;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  color: white;
+  font-weight: bold;
+}
+
+button:disabled{
+  background-color: grey; /* Grey background for disabled buttons */
+  cursor: not-allowed; /* Change cursor to indicate button is not clickable */
+}
+
+.size-selection button:hover{
+  background-color: #06438a;
+}
+
+
+
+.removeButton{
+  margin: 10px;
+  background-color: red;
+  width: 150px;
+  height: 50px;
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+.removeButton:hover{
+  background-color: rgb(124, 3, 3);
+}
