@@ -57,7 +57,7 @@ const Nav = (props) => {
           <Image src="/shoppingCart.png" alt="Cart" width={40} height={40} />
           {cartCount > 0 && <div className = "cartCounter">{cartCount}</div>}
         </button>
-        {isCartOpen && <CartOverlay items = {cartItems} onClose = {handleToggle}></CartOverlay>}
+        {isCartOpen && <CartOverlay isOpen = {isCartOpen} items = {cartItems} onClose = {handleToggle}></CartOverlay>}
     </nav>
   );
 };
