@@ -7,7 +7,7 @@ import CheckoutItems from '@components/CheckoutItems'
 
 
 const page = () => {
-    const { cart, setCart } = useContext(PageContext)
+    const { cart, setCart, cartCount, setCartCount } = useContext(PageContext)
 
     useEffect(() => {
         // Retrieve the cart from localStorage on component mount
@@ -23,10 +23,18 @@ const page = () => {
         localStorage.setItem('cart', JSON.stringify(cart));
         }
     }, [cart]);
+
+    useEffect(() => {
+        // Retrieve the cart from localStorage on component mount
+        const cartCount = localStorage.getItem('cartCount');
+        if (cartCount > 0) {
+        setCartCount(JSON.parse(storedCart)); // Update the cart from localStorage
+        }
+    }, [cartCount]);
     
     console.log(cart);
     return (
-        <div className = "cartPage color-white h-100">
+        <div className = "cartPage color-white">
             {cart.map(cartItem => (
                 <CheckoutItems item = {cartItem}></CheckoutItems>
             ))}

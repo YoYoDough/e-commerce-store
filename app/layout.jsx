@@ -42,7 +42,7 @@ export const RootLayout = ({ children }) => {
           </main>
           )}
         </Provider>
-        <PageContext.Provider value={{ cart, setCart }}>
+        <PageContext.Provider value={{ cart, setCart, cartCount, setCartCount }}>
           {isCheckout && children} {/* Render children directly for checkout */}
         </PageContext.Provider>
       </body>
