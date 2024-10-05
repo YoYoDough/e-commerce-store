@@ -5,6 +5,7 @@ import Nav from '@components/Nav';
 import Provider from '@components/Provider';
 import Info from '@components/Info';
 import { useState, createContext  } from 'react'
+import { usePathname } from 'next/navigation'
 import CartOverlay from '@components/CartOverlay'
 
 export const PageContext = createContext(null);
@@ -17,9 +18,11 @@ export const RootLayout = ({ children }) => {
   const [clothingItems, setClothingItems] = useState([]);
   const [cart, setCart] = useState([]);
   const cartSize = cart.length
-  console.log(cart);
   
-
+  console.log(cart);
+  const pathName = usePathname();
+  const isCheckout = pathName === '/checkout';
+  console.log(isCheckout);
   return (
     <html lang="en">
       <body>
@@ -27,8 +30,8 @@ export const RootLayout = ({ children }) => {
           <div className="main">
               <div className="gradient" />
           </div>
-
-          <main className="app">
+          {!isCheckout && (
+            <main className="app">
             {/* Pass cartCount to Nav component */}
             
             <PageContext.Provider value={{ cartCount, setCartCount, setCart, setClothingItems, clothingItems, cartSize}}>
@@ -37,7 +40,11 @@ export const RootLayout = ({ children }) => {
             </PageContext.Provider>
             <Info />
           </main>
+          )}
         </Provider>
+        <PageContext.Provider value={{ cart, setCart }}>
+          {isCheckout && children} {/* Render children directly for checkout */}
+        </PageContext.Provider>
       </body>
     </html>
   )

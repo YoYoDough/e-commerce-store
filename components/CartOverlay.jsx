@@ -2,8 +2,10 @@
 import { PageContext } from '@app/layout';
 import { useState, useContext } from 'react';
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 const CartOverlay = ({items, isOpen, onClose}) => { 
+  const router = useRouter();
   const { cart, setCart, setCartCount, cartSize } = useContext(PageContext);
   
   function handleSelectSize(itemId, size){
@@ -27,6 +29,14 @@ const CartOverlay = ({items, isOpen, onClose}) => {
     setCart(prevCart => prevCart.filter(cartItem => cartItem.id !== itemId))
     setCartCount(prevCount=> prevCount-count)
   }
+
+  const handleCheckout = () => {
+    // Navigate to the checkout page and pass the cart as a query parameter
+    router.push({
+        pathname: '/checkout',
+        query: { cart: cart }, // Serialize cart to pass as a query
+    });
+};
 
   return (
     <div className = "wrapper">

@@ -1,7 +1,7 @@
 
 
-const Item = ({ item, onSelect, className}) => {
-    
+const Item = ({ item, onSelect, className, size}) => {
+    const hasButton = typeof onSelect === 'function';
     return (
       <div className={className}>
         <img src={item.imageUrl} alt={item.name} />
