@@ -34,9 +34,9 @@ const page = () => {
     
     console.log(cart);
     return (
-        <div className = "cartPage color-white">
+        <div className = "checkoutPage">
             {cart.map(cartItem => (
-                <CheckoutItems item = {cartItem}></CheckoutItems>
+                <CheckoutItems key = {cartItem.id} item = {cartItem}></CheckoutItems>
             ))}
         </div>
     )

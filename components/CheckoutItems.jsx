@@ -2,7 +2,7 @@ import React from 'react'
 
 const CheckoutItems = ({item}) => {
   return (
-    <div className = "checkoutPage">
+    <div>
       <div className="checkoutItem">
         <img src={item.imageUrl} alt={item.name} className = "checkoutImage"/>
         <ul className = "ml-20">

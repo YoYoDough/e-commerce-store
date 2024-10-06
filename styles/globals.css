@@ -416,6 +416,8 @@ button.normalSizeButtonColor{
 
 .checkoutPage{
   background-color: black;
+  color: white; /* Ensure text is readable on a dark background */
+  min-height: 100vh;
 }
 
 .checkoutItem{
