@@ -434,3 +434,51 @@ button.normalSizeButtonColor{
   background-color: #333;
   border-radius: 10px;
 }
+
+.checkoutInfo{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 10px;
+}
+
+.checkoutSummary{
+  align-self:baseline;
+  margin-top: 50px;
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+}
+
+input{
+  border-radius: 5px;
+  height: 50px;
+  width: 100%;
+  padding: 10px;
+  color: black
+}
+
+label{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+select{
+  border-radius: 5px;
+  height: 50px;
+  width: 100%;
+  padding: 10px;
+  color: black;
+}
+
+.submitBtn{
+  background-color: #222222;
+  height: 50px;
+  border-radius: 5px;
+}
+
+.whiteFooter{
+  color: white;
+}

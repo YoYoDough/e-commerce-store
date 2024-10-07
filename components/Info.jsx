@@ -2,16 +2,16 @@ import Link from 'next/link';
 
 const { COMPANY_NAME, SITE_NAME } = process.env;
 
-const Info = () => {
+const Info = ( { color }) => {
     const currentYear = new Date().getFullYear();
     const copyrightDate = `2023-${currentYear}`;
-    const skeleton = "block p-2 text-lg underline-offset-4 hover:text-black hover:underline md:inline-block md:text-sm dark:hover:text-neutral-300 text-black dark:text-neutral-300";
+    const skeleton = `block p-2 text-lg underline-offset-4 hover:text-${color === 'white' ? 'white' : 'black'} hover:underline md:inline-block md:text-sm dark:hover:text-neutral-300  dark:text-neutral-300`;
     const copyrightName = COMPANY_NAME || SITE_NAME || '';
     return (
-        <footer className="text-sm text-neutral-500 dark:text-neutral-400">
+        <footer className={`text-sm text-neutral-500 ${color === 'white' ? 'text-white' : 'dark:text-neutral-400'}`}>
             <div className="mx-auto flex w-full max-w-7xl flex-row gap-6 border-t border-neutral-200 px-6 py-12 md:flex-row md:gap-12 md:px-4 min-[1320px]:px-0 dark:border-neutral-700">
                 {/* Placeholder for any additional content or links */}
-                    <nav className="flex flex-row gap-2 md:flex-col">
+                    <nav className= "flex flex-row gap-2 md:flex-col">
                         <Link href="/"
                         className={skeleton}
                         >
