@@ -482,3 +482,9 @@ select{
 .whiteFooter{
   color: white;
 }
+
+.purchasedText{
+  @apply text-5xl font-extrabold leading-[1.15] text-white sm:text-6xl;
+  text-align: center;
+  padding: 300px;
+}

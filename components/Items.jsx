@@ -9,12 +9,12 @@ const Items = () => {
   const handleSelect = (item) => {
       setCartCount(prevCount => prevCount + 1); // Increment cartCount
       setCart(prevCart => {
-        const existingItem = prevCart.find(cartItem => cartItem.id === item.id);
+        const existingItem = prevCart.find(cartItem => cartItem.item_id === item.item_id);
 
         if (existingItem) {
             // If the item already exists in the cart, increment its count
             return prevCart.map(cartItem =>
-                cartItem.id === item.id
+                cartItem.item_id === item.item_id
                     ? { ...cartItem, count: cartItem.count + 1 } // Increment count
                     : cartItem
             );

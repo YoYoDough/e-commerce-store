@@ -14,9 +14,9 @@ const page = () => {
     const handleSelect = (item) => {
         setCartCount(prevCount => prevCount + 1); // Increment cartCount
         setCart(prevCart => {
-            const existingItem = prevCart.find(cartItem => cartItem.id === item.id);
+            const existingItem = prevCart.find(cartItem => cartItem.item_id === item.item_id);
             if (existingItem){
-                return prevCart.map(cartItem => cartItem.id === item.id ? {...cartItem, count: cartItem.count+1}: cartItem)
+                return prevCart.map(cartItem => cartItem.item_id === item.item_id ? {...cartItem, count: cartItem.count+1}: cartItem)
             }
             else{
               const defaultSize = item.mediumStock > 0 ? 'medium' : item.largeStock > 0 ? 'large' : item.smallStock > 0 ? 'small' : null;
@@ -48,7 +48,7 @@ const page = () => {
   return (
     <div className = "categoryItems">
         {clothingItems.map((item) => (
-            <CategoryList key = {item.id} item = {item} onSelect ={() => handleSelect(item)}></CategoryList>
+            <CategoryList key = {item.item_id} item = {item} onSelect ={() => handleSelect(item)}></CategoryList>
         ))}
     </div>
   )

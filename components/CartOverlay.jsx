@@ -11,7 +11,7 @@ const CartOverlay = ({items, isOpen, onClose}) => {
   function handleSelectSize(itemId, size){
     
     setCart(prevCart => 
-      prevCart.map(cartItem => cartItem.id === itemId ? {...cartItem, itemSize: size} : cartItem
+      prevCart.map(cartItem => cartItem.item_id === itemId ? {...cartItem, itemSize: size} : cartItem
       )
     )
   }
@@ -19,14 +19,14 @@ const CartOverlay = ({items, isOpen, onClose}) => {
   const updateItemQuantity = (itemId, newCount) => {
     setCart((prevCart) =>
       prevCart.map(cartItem =>
-        cartItem.id === itemId ? { ...cartItem, count: newCount } : cartItem
+        cartItem.item_id === itemId ? { ...cartItem, count: newCount } : cartItem
       )
     );
     setCartCount(prevCount => newCount)
   };
 
   function handleRemoveFromCart(itemId, count){
-    setCart(prevCart => prevCart.filter(cartItem => cartItem.id !== itemId))
+    setCart(prevCart => prevCart.filter(cartItem => cartItem.item_id !== itemId))
     setCartCount(prevCount=> prevCount-count)
   }
 
@@ -51,10 +51,10 @@ const CartOverlay = ({items, isOpen, onClose}) => {
                         <img src = {item.imageUrl} alt = {item.name} className = "overlayImg"></img>
                         <p>{item.name}</p>
                         <span>Quantity: {item.count} 
-                          <button className ="addMore" onClick={() => updateItemQuantity(item.id, item.count + 1)}>
+                          <button className ="addMore" onClick={() => updateItemQuantity(item.item_id, item.count + 1)}>
                             +
                           </button>
-                          <button className = "addLess" onClick={() => updateItemQuantity(item.id, item.count - 1)} disabled={item.count === 1}>
+                          <button className = "addLess" onClick={() => updateItemQuantity(item.item_id, item.count - 1)} disabled={item.count === 1}>
                             -
                           </button>
                         </span>
@@ -62,7 +62,7 @@ const CartOverlay = ({items, isOpen, onClose}) => {
                         {/* Size Selection Buttons */}
                         <div className="size-selection">
                         <button
-                          onClick={() => handleSelectSize(item.id, 'small')}
+                          onClick={() => handleSelectSize(item.item_id, 'small')}
                           className={item.itemSize === 'small' ? 'darkerSizeButtonColor' : 'normalSizeButtonColor'}
                           disabled={item.smallStock === 0}
                         >
@@ -70,7 +70,7 @@ const CartOverlay = ({items, isOpen, onClose}) => {
                           </button>
                           
                           <button 
-                            onClick={() => handleSelectSize(item.id, 'medium') }
+                            onClick={() => handleSelectSize(item.item_id, 'medium') }
                             className={item.itemSize === 'medium' ? 'darkerSizeButtonColor' : 'normalSizeButtonColor'}
                             disabled = {item.mediumStock === 0}
                           >
@@ -78,7 +78,7 @@ const CartOverlay = ({items, isOpen, onClose}) => {
                           </button>
                           
                           <button 
-                            onClick={() => handleSelectSize(item.id, 'large')}
+                            onClick={() => handleSelectSize(item.item_id, 'large')}
                             className={item.itemSize === 'large' ? 'darkerSizeButtonColor' : 'normalSizeButtonColor'}
                             disabled = {item.largeStock === 0}
                           >
@@ -86,7 +86,7 @@ const CartOverlay = ({items, isOpen, onClose}) => {
                           </button>
                         </div>
 
-                        <button className="removeButton" onClick = {()=>handleRemoveFromCart(item.id, item.count)}>Remove from Cart</button>
+                        <button className="removeButton" onClick = {()=>handleRemoveFromCart(item.item_id, item.count)}>Remove from Cart</button>
                     </li>
 
                     

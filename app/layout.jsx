@@ -18,6 +18,7 @@ export const RootLayout = ({ children }) => {
   const [clothingItems, setClothingItems] = useState([]);
   const [cart, setCart] = useState([]);
   const cartSize = cart.length
+  console.log(cartCount);
   
   console.log(cart);
   const pathName = usePathname();
