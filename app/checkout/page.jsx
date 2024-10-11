@@ -78,6 +78,36 @@ const page = () => {
             totalAmount: fullPrice,
             cartItems: cart,
         }
+        const email = formData.email;
+        const zip = formData.zip;
+        const cardNumber = formData.cardNumber;
+        const expiry = formData.expiry;
+        const cvv = formData.cvv;
+        if (!email.includes('@'))
+        {
+            alert("Please enter a valid email.");
+            return;
+        }
+        if (zip.length !== 5 || isNaN(zip))
+        {
+            alert("Please enter a valid email.")
+            return;
+        }
+        if (cardNumber.length !== 19)
+        {
+            alert("Please enter a valid card number.");
+            return;
+        }
+        if (expiry.length !==5)
+        {
+            alert("Please enter a valid card expiration date.");
+            return;
+        }
+        if (cvv.length !== 3 || isNaN(cvv))
+        {
+            alert("Please enter a valid CVV.");
+            return;
+        }
         setFullData(fullData);
         setIsSubmitted(true);
         console.log("Order data submitted", fullData)
@@ -161,7 +191,7 @@ const page = () => {
                       <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} placeholder="Enter your name" required />
 
                       <label htmlFor="cardNumber">Card Number</label>
-                      <input type="text" id="cardNumber" name="cardNumber" value={formData.cardNumber} onChange={handleChange} placeholder="1234 5678 9012 3456" required />
+                      <input type="text" id="cardNumber" name="cardNumber" value={formData.cardNumber} size = '20' onChange={handleChange} placeholder="1234 5678 9012 3456" required />
 
                       <label htmlFor="expiry">Expiry Date</label>
                       <input type="text" id="expiry" name="expiry" value={formData.expiry} onChange={handleChange} placeholder="MM/YY" />
