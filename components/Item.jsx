@@ -1,14 +1,28 @@
+import {useState} from 'react'
+import Modal from '@components/Modal'
 
+const Item = ({ item, onSelect, className}) => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
-const Item = ({ item, onSelect, className, size}) => {
+    function handleClick(){
+      setIsModalOpen(true);
+    }
+
+    function handleClose(){
+      setIsModalOpen(false)
+    }
     
     return (
-      <div className={className}>
-        <img src={item.imageUrl} alt={item.name} />
-        <p>{item.name}</p>
-        <p className = "price">${item.price}</p>
-        <button onClick = {onSelect} className = "addToCartButton">Add to Cart</button>
-      </div>
+      <>
+        <div className={className} onClick = {handleClick}>
+          <img src={item.imageUrl} alt={item.name} />
+          <p>{item.name}</p>
+          <p className = "price">${item.price}</p>
+          <button onClick = {onSelect} className = "addToCartButton">Add to Cart</button>
+        </div>
+
+        {isModalOpen && <Modal key = {item.item_id} item = {item} onClose = {handleClose}></Modal>}
+      </>
     );
   };
   

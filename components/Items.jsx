@@ -49,13 +49,13 @@ const Items = () => {
 
   return (
     <div className="items" id ="items">
-        {clothingItems.length > 0 && <Item item={clothingItems[0]} onSelect={() => handleSelect(clothingItems[0])} className = "shirt"/>}
+        {clothingItems.length > 0 && <Item key = {clothingItems[0].item_id} item={clothingItems[0]} onSelect={() => handleSelect(clothingItems[0])} className = "shirt"/>}
       
         {clothingItems.slice(1, 3).map((item, index) => (
           <Item key={index} item={item} onSelect={() => handleSelect(item)} className = "other-items"/>
         ))}
 
-        {clothingItems.length > 3 && <Item item={clothingItems[3]} onSelect={() => handleSelect(clothingItems[3])} className = "shoe"/>}
+        {clothingItems.length > 3 && <Item key = {clothingItems[3].item_id} item={clothingItems[3]} onSelect={() => handleSelect(clothingItems[3])} className = "shoe"/>}
     </div>
   )
 }

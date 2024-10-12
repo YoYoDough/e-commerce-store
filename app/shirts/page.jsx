@@ -1,6 +1,6 @@
 'use client'
 
-import CategoryList from '@components/CategoryList'
+import Item from '@components/Item'
 import { useState, useEffect, useContext } from 'react';
 import { usePathname} from 'next/navigation'
 import { PageContext } from '@app/layout'
@@ -9,7 +9,12 @@ import { PageContext } from '@app/layout'
 const page = () => {
     const pathName = usePathname();
     const category = pathName.split('/')[1]
-    const { clothingItems, setClothingItems, setCartCount, setCart } = useContext(PageContext)
+    const { clothingItems, setClothingItems, setCartCount, setCart, cartCount } = useContext(PageContext)
+    console.log(cartCount)
+    if (cartCount < 0)
+    {
+      setCartCount(0);
+    }
 
     const handleSelect = (item) => {
         setCartCount(prevCount => prevCount + 1); // Increment cartCount
@@ -48,7 +53,7 @@ const page = () => {
   return (
     <div className = "categoryItems">
         {clothingItems.map((item) => (
-            <CategoryList key = {item.item_id} item = {item} onSelect ={() => handleSelect(item)}></CategoryList>
+            <Item key = {item.item_id} item = {item} onSelect ={() => handleSelect(item)} className = "categoryItem"></Item>
         ))}
     </div>
   )

@@ -6,7 +6,8 @@ import { useRouter } from 'next/navigation'
 
 const CartOverlay = ({items, isOpen, onClose}) => { 
   const router = useRouter();
-  const { cart, setCart, setCartCount, cartSize } = useContext(PageContext);
+  const { cart, setCart, setCartCount, cartSize, cartCount } = useContext(PageContext);
+  console.log(cartCount)
   
   function handleSelectSize(itemId, size){
     
@@ -16,13 +17,14 @@ const CartOverlay = ({items, isOpen, onClose}) => {
     )
   }
   
-  const updateItemQuantity = (itemId, newCount) => {
+  
+  const updateItemQuantity = (itemId, newCount, operator) => {
+    operator === "+" ? setCartCount(prevCount => prevCount+1): setCartCount(prevCount => prevCount-1)
     setCart((prevCart) =>
       prevCart.map(cartItem =>
         cartItem.item_id === itemId ? { ...cartItem, count: newCount } : cartItem
       )
     );
-    setCartCount(prevCount => newCount)
   };
 
   function handleRemoveFromCart(itemId, count){
@@ -51,10 +53,10 @@ const CartOverlay = ({items, isOpen, onClose}) => {
                         <img src = {item.imageUrl} alt = {item.name} className = "overlayImg"></img>
                         <p>{item.name}</p>
                         <span>Quantity: {item.count} 
-                          <button className ="addMore" onClick={() => updateItemQuantity(item.item_id, item.count + 1)}>
+                          <button className ="addMore" onClick={() => updateItemQuantity(item.item_id, item.count + 1, "+")}>
                             +
                           </button>
-                          <button className = "addLess" onClick={() => updateItemQuantity(item.item_id, item.count - 1)} disabled={item.count === 1}>
+                          <button className = "addLess" onClick={() => updateItemQuantity(item.item_id, item.count - 1, "-")} disabled={item.count === 1}>
                             -
                           </button>
                         </span>

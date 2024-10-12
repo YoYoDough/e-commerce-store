@@ -1,6 +1,6 @@
 'use client'
 
-import CategoryList from '@components/CategoryList'
+import Item from '@components/Item'
 import { useState, useEffect, useContext } from 'react';
 import { usePathname} from 'next/navigation'
 import { PageContext } from '@app/layout'
@@ -48,7 +48,7 @@ const page = () => {
   return (
     <div className = "categoryItems">
         {clothingItems.map((item) => (
-            <CategoryList key = {item.item_id} item = {item} onSelect ={() => handleSelect(item)} category = {category.slice(0,category.length-1)}></CategoryList>
+            <Item key = {item.item_id} item = {item} onSelect ={() => handleSelect(item)} category = {category.slice(0,category.length-1)} className = "categoryItem"></Item>
         ))}
     </div>
   )
