@@ -263,6 +263,74 @@ li::marker{
   background-color: #005bb5; /* Darker blue on hover */
 }
 
+.loading-spinner {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.close{
+  font-size: 30px;
+  justify-self: flex-start;
+}
+
+.modalContent {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.large-image {
+  width: 100%;
+  height: 500px;
+}
+
+.arrows {
+  display: flex;
+  justify-content: space-between;
+  width: 100px;
+  margin: 20px auto;
+}
+
+.backArrow{
+  justify-self: flex-start;
+}
+
+.nextArrow{
+  justify-self: flex-end;
+}
+
+.arrows button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
 .wrapper {
   position: relative; /* To position the overlay and backdrop */
 }

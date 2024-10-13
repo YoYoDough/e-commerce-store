@@ -32,14 +32,6 @@ const CartOverlay = ({items, isOpen, onClose}) => {
     setCartCount(prevCount=> prevCount-count)
   }
 
-  const handleCheckout = () => {
-    // Navigate to the checkout page and pass the cart as a query parameter
-    router.push({
-        pathname: '/checkout',
-        query: { cart: cart }, // Serialize cart to pass as a query
-    });
-};
-
   return (
     <div className = "wrapper">
       {isOpen && <div className="backdrop" onClick={onClose} />}
