@@ -14,8 +14,8 @@ const Item = ({ item, onSelect, className}) => {
     
     return (
       <>
-        <div className={className} onClick = {handleClick}>
-          <img src={item.imageUrl} alt={item.name} />
+        <div className={className}>
+          <img src={item.imageUrl} alt={item.name} onClick = {handleClick}/>
           <p>{item.name}</p>
           <p className = "price">${item.price}</p>
           <button onClick = {onSelect} className = "addToCartButton">Add to Cart</button>

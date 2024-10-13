@@ -141,7 +141,7 @@ const page = () => {
     
         submitOrder();
       }, [isSubmitted, fullData]);
-    
+
     return (
       
         <div className = "checkoutPage">
